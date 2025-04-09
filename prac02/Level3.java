@@ -2,7 +2,7 @@ package prac02;
 
 import java.util.*;
 
-// Lv2. 스파르타 자판기
+// Lv3. 단어 맞추기 게임
 public class Level3 {
     public static void main(String[] args) {
         String[] words = {
@@ -36,16 +36,16 @@ public class Level3 {
         while (chance > 0) {
             System.out.print("\n(A-Z)을 입력하세요 (남은 기회: " + chance + "): ");
             user_word = scan.next().toUpperCase();
-            // a. A-Z 사이의 알파벳이 아니라면 다시 입력을 받습니다
-            // b. 입력값이 한 글자가 아니라면 다시 입력을 받습니다
-            // c. 이미 입력했던 알파벳이라면 다시 입력을 받습니다.
+            // 2.a. A-Z 사이의 알파벳이 아니라면 다시 입력을 받습니다
+            // 2.b. 입력값이 한 글자가 아니라면 다시 입력을 받습니다
+            // 2.c. 이미 입력했던 알파벳이라면 다시 입력을 받습니다.
             if ((!Character.isLetter(user_word.charAt(0))) || (user_word.length() != 1) || already_used.contains(user_word)) {
                 System.out.print("다시 입력하세요");
                 continue;
             }
             already_used += user_word;
 
-            // d. 입력값이 정답에 포함된 알파벳일 경우 해당 알파벳이 들어간 자리를 전부 보여주고, 다시 입력을 받습니다.
+            // 2.d. 입력값이 정답에 포함된 알파벳일 경우 해당 알파벳이 들어간 자리를 전부 보여주고, 다시 입력을 받습니다.
             boolean no_exist = true;
             boolean check_end = true;
 
@@ -59,7 +59,7 @@ public class Level3 {
                 }
                 System.out.print(answer[i]);
             }
-            // e. 입력값이 정답에 포함되지 않은 알파벳일 경우 기회가 하나 차감되고, 다시 입력을 받습니다.
+            // 2.e. 입력값이 정답에 포함되지 않은 알파벳일 경우 기회가 하나 차감되고, 다시 입력을 받습니다.
             if (no_exist) {
                 chance -= 1;
             }
